@@ -1,0 +1,13 @@
+@import Models.Book
+@(bookForm : Form[Book])
+@import helper._
+
+@layout("Изменение книги") {
+    <h1>Изменение книги</h1>
+    @helper.form(action = routes.BooksController.update()){
+        @helper.inputText(bookForm("id"), '_label -> "ID:")
+        @helper.inputText(bookForm("title"), '_label -> "Название книги:")
+        @helper.inputText(bookForm("year"), '_label -> "Год издания:")
+        <input type="submit" value="Изменить">
+    }
+}

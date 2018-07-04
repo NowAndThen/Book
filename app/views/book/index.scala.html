@@ -1,0 +1,15 @@
+@import Models.Volume
+@(books: Set[Volume])
+
+@layout("Список книг"){
+    <h1>Список книг</h1>
+
+    @for(book <- books){
+        <a href="@routes.BooksController.show(book.id)">@book.title</a>
+        <p>Год издания: @book.year</p>
+        <p>Авторы: @book.authors</p>
+    }
+
+    <a href="@routes.BooksController.create()">Создать новую книгу</a>
+    <a href="@routes.BooksController.authors()">Посмотреть всех авторов</a>
+}

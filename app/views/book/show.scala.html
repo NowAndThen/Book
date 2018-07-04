@@ -1,0 +1,12 @@
+@import Models.Volume
+@(book: Volume)
+
+@layout(book.title) {
+    <h2>@book.title</h2>
+    <p>Год издания: @book.year</p>
+    <p>Авторы: @book.authors</p>
+
+    <a href="@routes.BooksController.edit(book.id)">Edit</a>
+
+    <a href="@routes.BooksController.destroy(book.id)">Delete</a>
+}

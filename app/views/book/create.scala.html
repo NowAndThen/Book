@@ -1,0 +1,14 @@
+
+@import Models.Volume
+@(bookForm : Form[Volume])
+@import helper._
+
+@layout("Создание книги"){
+    <h1>Создать книгу</h1>
+    @helper.form(action = routes.BooksController.save()){
+        @helper.inputText(bookForm("title"), '_label -> "Название книги:")
+        @helper.inputText(bookForm("year"), '_label -> "Год издания:")
+        @helper.inputText(bookForm("authors"), '_label -> "Авторы (Перечислите через ;):")
+        <input type="submit" value="Создать">
+    }
+}
